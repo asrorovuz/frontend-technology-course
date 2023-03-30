@@ -1,31 +1,47 @@
-import React from 'react'
-import { Link, useNavigate } from "react-router-dom"
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
 import { ADoc } from "../components/adminComponent/ADoc"
+import { ACard } from "../components/adminComponent/ACard"
+import { AVideo } from "../components/adminComponent/AVideo"
+import { AUser } from "../components/adminComponent/AUser"
 
 import "../styles/Admin.css"
 
 export const AdminPage = () => {
+  const [renderComp, setRenderComp] = useState(<ADoc />)
 
-  const navigate = useNavigate()
+  const changeComp = (e) => {
+    let value = e.target.innerText
+    if(value === "Manbalar"){
+      setRenderComp(<ADoc />)
+    }else if(value === "Kurslar"){
+      setRenderComp(<ACard />)
+    }else if(value === "Videolar"){
+      setRenderComp(<AVideo />)
+    }else if(value === "Admin"){
+      setRenderComp(<AUser />)
+    }else{
+      console.log("err")
+    }
+  }
 
   return (
     <div className='admin-page d-flex'>
       <div className="admin-navbar">
         <h2>
-          <Link to="#m">
+          <Link to="/">
             Qaytish
-            {navigate('/home')}
           </Link>
         </h2>
-        <ul className='d-flex'>
-          <li><Link to={"/"}>Manbalar</Link></li>
-          <li><Link>Kurslar</Link></li>
-          <li><Link>Videolar</Link></li>
-          <li><Link>Admin</Link></li>
+        <ul className='d-flex' onClick={(e) => changeComp(e)}>
+          <li>Manbalar</li>
+          <li>Kurslar</li>
+          <li>Videolar</li>
+          <li>Admin</li>
         </ul>
       </div>
       <div className="admin-main">
-        <ADoc/>
+        {renderComp}
       </div>
     </div>
   )

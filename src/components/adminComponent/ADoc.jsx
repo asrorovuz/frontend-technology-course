@@ -2,7 +2,7 @@ import React from "react";
 
 export const ADoc = () => {
   return (
-    <div className="manbalar" id="m">
+    <div className="manbalar">
       <h3>Documitation</h3>
       <h4>Add card</h4>
       <div className="doc-form">
@@ -18,17 +18,21 @@ export const ADoc = () => {
           cols="30"
           rows="10"
         ></textarea>
-        <button className="admin-btn" type="submit">
-          Yuborish
-        </button>
+        <div className="admin-button d-flex">
+          <button className="admin-btn" type="submit">
+            Yuborish
+          </button>
+        </div>  
       </div>
       <h4>Delete card</h4>
       <div className="doc-form">
         <label htmlFor="delete-doc">ID </label>
         <input type="text" id="delete-doc" placeholder="1..." />
-        <button className="admin-btn" type="submit">
-          Yuborish
-        </button>
+        <div className="admin-button d-flex">
+          <button className="admin-btn" type="submit">
+            Yuborish
+          </button>
+        </div>
       </div>
     </div>
   );

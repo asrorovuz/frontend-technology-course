@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { ReactComponent as Movie } from "../images/film.svg";
 import "../styles/CourseItem.css"
 
 export const CourseItemsPage = () => {
-  let { id } = useParams();
+  // let { id } = useParams();
 
   return (
     <div className="container d-flex course-item">
