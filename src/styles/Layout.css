@@ -1,0 +1,97 @@
+/* header  */
+header{
+    top: 0;
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+    background-color: var(--darkColor);
+    color: var(--linkColor);
+    padding-left: 100px;
+    height: 70px;
+    line-height: 70px;
+}
+
+.header{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 80px;
+    padding: 0 50px;
+}
+
+.logo a{
+    letter-spacing: 2px;
+    font-size: 32px;
+}
+
+.navbar{
+    column-gap: 50px;
+    height: 70px;
+}
+
+.navbar a{
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+}
+
+.navbar .admin a{
+    height: 4vh;
+    line-height: 4vh;
+    border-left: 1px solid var(--linkColor);
+    padding: 0 20px;
+}
+
+/* main */
+
+main{
+    width: 100%;
+    padding-top: 70px;
+    min-height: calc(100vh - (80px + 60px));
+}
+
+/* footer  */
+
+footer{
+    width: 100%;
+    background: var(--darkColor);
+    justify-content: center;
+    height: 80px;
+    line-height: 80px;
+    margin-top: 60px;
+}
+
+footer .footer{
+    justify-content: center;
+    height: 80px;
+    line-height: 80px;
+    column-gap: 100px;
+}
+
+.footer .footer-content{
+    column-gap: 20px;
+    text-align: center;
+}
+
+.footer-content p{
+    width: max-content;
+    border-right: 1px solid var(--linkColor);
+    padding-right: 20px;
+    font-size: 14px;
+}
+
+.footer-content p, .footer-content address{
+    line-height: 30px;
+    height: 30px;
+    color: var(--linkColor);
+}
+
+.footer .social-media{
+    column-gap: 20px;
+}
+
+.footer .youtube, .footer .github, .footer .telegram{
+    width: 30px;
+    height: 30px;   
+    line-height: 30px;
+    cursor: pointer;
+}

@@ -1,0 +1,61 @@
+.admin-page{
+    width: 100%;
+    height: 100vh;
+}
+
+.admin-navbar{
+    width: 25%;
+    background-color: var(--darkColor);
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.admin-navbar h2 a{
+    color: var(--linkColor);
+    margin-top: 80px;
+    font-size: 24px;
+}
+
+.admin-navbar ul{
+    height: max-content;
+    margin-top: 130px;
+    flex-direction: column;
+}
+
+.admin-navbar ul li a{
+    color: var(--linkColor);
+    padding: 10px 50px;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.admin-main{
+    width: 75%;
+    height: 100vh;
+    padding: 80px 40px;
+    overflow-y: scroll;
+}
+
+.admin-main::-webkit-scrollbar{
+    width: 0;
+    display: none;
+}
+
+.admin-main .manbalar h3{
+    margin-bottom: 30px;
+}
+
+.admin-main .manbalar h4{
+    font-size: 22px;
+}
+
+.admin-btn{
+    border: 0;
+    outline: 0;
+    background-color: var(--darkColor);
+    color: var(--linkColor);
+    border: 1px solid var(--darkColor);
+    padding: 10px 25px;
+    float: right;
+}

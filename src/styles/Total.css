@@ -1,0 +1,13 @@
+.home{
+    flex-direction: column;
+}
+
+.banner, .banner img{
+    width: 100%;
+}
+
+.about{
+    flex-direction: column;
+    row-gap: 30px;
+    padding-top: 60px;
+}

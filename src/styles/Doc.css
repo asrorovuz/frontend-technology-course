@@ -1,0 +1,57 @@
+.doc {
+  flex-direction: column;
+  row-gap: 30px;
+  padding-top: 80px;
+  width: 60%;
+}
+
+.doc-card {
+  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  color: var(--darkColor);
+  border: 1px solid var(--darkColor);
+}
+
+.doc-card .doc-header {
+  padding: 10px 25px;
+  background-color: var(--darkColor);
+  cursor: pointer;
+}
+
+.doc-card .doc-header h3 {
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--linkColor);
+}
+
+/* .doc-main {
+  display: none;
+} */
+
+.card-content {
+  padding: 10px 25px;
+  font-size: 16px;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.doc-link {
+  padding: 10px 25px 30px 25px;
+}
+
+.doc-link a {
+  color: var(--darkColor);
+  float: right;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.doc-link a:hover {
+  transform: scale(0.95);
+}
+
+.show {
+  display: block;
+}

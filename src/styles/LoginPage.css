@@ -1,0 +1,76 @@
+.form-block {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--darkColor);
+}
+
+.navigate-home{
+  width: max-content;
+  padding: 15px 15px;
+  background-color: var(--linkColor);
+  color: var(--darkColor);
+}
+
+.form{
+  width: max-content;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 25px;
+}
+
+.form a{
+  box-shadow: 0px 0px 7px 2px var(--linkColor);
+  font-weight: 600;
+}
+
+.form-block .form form {
+  width: max-content;
+  padding: 30px 40px 30px;
+  background-color: var(--linkColor);
+  box-shadow: 0px 0px 7px 2px var(--linkColor);
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 10px;
+}
+
+.form-block .form form h2{
+  margin-bottom: 30px;
+}
+
+.form-block .form form label,
+.form-block .form form input,
+.form-block .form form a {
+  width: 300px;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.form-block .form form input{
+  padding: 10px 10px;
+}
+
+.form-block .form form input:active {
+  border: 1px solid var(--darkColor);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  padding: 10px 0;
+}
+
+.form-block .form form .send-form a {
+  cursor: pointer;
+  margin-top: 10px;
+  border: 1px solid var(--darkColor);
+  background-color: var(--darkColor);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.form-block .form form .send-form a:hover {
+  background-color: var(--linkColor);
+  color: var(--darkColor);
+}
