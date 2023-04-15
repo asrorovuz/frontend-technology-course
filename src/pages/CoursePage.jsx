@@ -4,7 +4,7 @@ import "../styles/Course.css"
 
 export const CoursePage = ({ data }) => {
   let arr = data?.map(elem => {
-    let { title, img, videos, id } = elem
+    let { title, type, img, videos, id } = elem
 
     return(
       <div className="card">
@@ -20,7 +20,7 @@ export const CoursePage = ({ data }) => {
               <p>Narxi: <span>Bepul</span></p>
             </div>
           </div>  
-          <Link key={id} to={`/course/${id}`} className="card-btn d-flex">
+          <Link key={id} to={`/course/${type}`} className="card-btn d-flex">
             <span>show</span>
             <div className="card-icon d-flex">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">

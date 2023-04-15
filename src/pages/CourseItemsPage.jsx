@@ -1,20 +1,17 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
-// import { useEffect } from "react";
-// import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { ReactComponent as Movie } from "../images/film.svg";
 import "../styles/CourseItem.css";
 
 export const CourseItemsPage = ({ data }) => {
-  let { id } = useParams();
+  let { type } = useParams();
 
   const [mainData, setMainData] = useState(null);
 
-  let filterData = data?.filter((item) => item.id === +id);
+  let filterData = data?.filter((item) => item.type === type);
 
-  const filterMainData = ( element ) => {
+  const filterMainData = (element) => {
     setMainData(element);
   };
 
@@ -58,16 +55,32 @@ export const CourseItemsPage = ({ data }) => {
   return (
     <div className="container d-flex course-item">
       <div className="main-video d-flex">
-            <div className="video-play">
-              <video>
-                <source src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url} />
-              </video>
-            </div>
-            <div className="main-video-content">
-              <h3>HTML</h3>
-              <p>{mainData ? mainData?.name : filterData[0]?.videos[0]?.name }</p>
-            </div>
-          </div>
+        <div className="video-play">
+          {console.log(
+            mainData ? mainData?.url : filterData[0]?.videos[0]?.url
+          )}
+          <video
+            width="100%"
+            height="100%"
+            controls
+            muted
+            autoPlay={"autoplay"}
+            preLoad="auto"
+            loop
+            src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url}
+            type="video/mp4"
+          ></video>
+          {/* <video>
+            <source
+              src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url}
+            />
+          </video> */}
+        </div>
+        <div className="main-video-content">
+          <h3>HTML</h3>
+          <p>{mainData ? mainData?.name : filterData[0]?.videos[0]?.name}</p>
+        </div>
+      </div>
       <div className="video-list d-flex">{arr}</div>
     </div>
   );
