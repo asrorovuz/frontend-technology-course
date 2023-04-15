@@ -1,6 +1,9 @@
 import React from "react";
 
 export const ADoc = () => {
+
+  
+
   return (
     <div className="manbalar">
       <h3>Documitation</h3>

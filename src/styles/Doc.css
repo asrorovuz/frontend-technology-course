@@ -55,3 +55,12 @@
 .show {
   display: block;
 }
+
+@media only screen and (max-width: 1200px) {
+  .doc-card .doc-header h3{
+    font-size: 20px;
+  }
+  .card-content{
+    font-size: 14px;
+  }
+}

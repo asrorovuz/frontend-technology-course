@@ -2,25 +2,25 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "../styles/Course.css"
 
-export const CoursePage = () => {
-  return (
-    <div className='container d-flex course'>
-      <h2>Kurslar</h2>
-      <div className="cards d-flex">
+export const CoursePage = ({ data }) => {
+  let arr = data?.map(elem => {
+    let { title, img, videos, id } = elem
+
+    return(
       <div className="card">
           <div className="card-img">
-            <img src="" alt="course img" />
+            <img src={img} alt="course img" />
           </div>
           <div className="card-content">
             <div className="card-title">
-              <h3>HTML</h3>
+              <h3>{title}</h3>
             </div>
             <div className="card-info">
-              <p>Soni: <span>12 ta</span></p>
+              <p>Soni: <span>{videos.length} ta</span></p>
               <p>Narxi: <span>Bepul</span></p>
             </div>
           </div>  
-          <Link to="/course/id" className="card-btn d-flex">
+          <Link key={id} to={`/course/${id}`} className="card-btn d-flex">
             <span>show</span>
             <div className="card-icon d-flex">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -28,7 +28,15 @@ export const CoursePage = () => {
               </svg>
             </div>
           </Link>
-        </div>
+      </div>
+    )
+  })
+
+  return (
+    <div className='container d-flex course'>
+      <h2>Kurslar</h2>
+      <div className="cards d-flex">
+        {arr}
       </div>
     </div>
   )

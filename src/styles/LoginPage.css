@@ -61,16 +61,19 @@ label {
   padding: 10px 0;
 }
 
-.form-block .form form .send-form a {
+.form-block .form form .send-form {
+  width: 100%;
+  padding: 10px;
   cursor: pointer;
   margin-top: 10px;
   border: 1px solid var(--darkColor);
   background-color: var(--darkColor);
+  color: var(--linkColor);
   text-align: center;
   transition: 0.3s ease;
 }
 
-.form-block .form form .send-form a:hover {
+.form-block .form form .send-form:hover {
   background-color: var(--linkColor);
   color: var(--darkColor);
 }

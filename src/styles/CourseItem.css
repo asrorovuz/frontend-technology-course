@@ -61,6 +61,10 @@
   color: var(--linkColor);
 }
 
+.video-header h3{
+  font-size: 26px;
+}
+
 .lists {
   overflow-y: scroll;
   height: 540px;
@@ -85,6 +89,7 @@
   column-gap: 5px;
   cursor: pointer;
   font-size: 18px;
+  position: relative;
 }
 
 .video-icon {
@@ -110,4 +115,12 @@
   margin-top: 5px;
   font-size: 14px;
   text-align: left;
+}
+
+.target-block{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
