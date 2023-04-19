@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ReactComponent as Movie } from "../images/film.svg";
+import { ReactComponent as Movie } from "../assistant/film.svg";
 import "../styles/CourseItem.css";
 
 export const CourseItemsPage = ({ data }) => {
@@ -70,11 +70,6 @@ export const CourseItemsPage = ({ data }) => {
             src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url}
             type="video/mp4"
           ></video>
-          {/* <video>
-            <source
-              src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url}
-            />
-          </video> */}
         </div>
         <div className="main-video-content">
           <h3>HTML</h3>

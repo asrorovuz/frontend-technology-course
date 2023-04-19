@@ -67,6 +67,12 @@ p {
   text-align: center;
 }
 
+.loading{
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
 @media only screen and (max-width: 720px) {
   .about p,
   .about h2 {

@@ -1,11 +1,14 @@
 import React from "react";
 
 export const ACard = () => {
+
+  
+
   return (
     <div className="acard">
       <h3>Add Course Card</h3>
       <h4>Add card</h4>
-      <div className="card-form">
+      <form className="card-form">
         <label htmlFor="acard-title">Title </label>
         <input type="text" id="acard-title" placeholder="HTML" />
         <label>Download Image</label>
@@ -15,9 +18,9 @@ export const ACard = () => {
             Yuborish
           </button>
         </div>
-      </div>
+      </form>
       <h4>Delete card</h4>
-      <div className="doc-form">
+      <form className="doc-form">
         <label htmlFor="delete-doc">Title </label>
         <input type="text" id="delete-doc" placeholder="HTML..." />
         <div className="admin-button d-flex">
@@ -25,7 +28,7 @@ export const ACard = () => {
             Yuborish
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

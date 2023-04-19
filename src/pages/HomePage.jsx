@@ -5,12 +5,12 @@ import { CoursePage } from "../pages/CoursePage"
 import { ContactPage } from "../pages/ContactPage"
 import "../styles/Total.css"
 
-export const HomePage = () => {
+export const HomePage = ({data}) => {
   return (
     <div className='d-flex home'>
       <Banner />
       <AboutPage />
-      <CoursePage />
+      <CoursePage data={data}/>
       <ContactPage />
     </div>
   )

@@ -1,38 +1,37 @@
-import React from 'react'
-// import { useForm } from "react-hook-form"
+import React, {useState} from 'react'
 
 export const AUser = () => {
 
-  // const [user, setUser] = useState({
-  //   email: "",
-  //   password: ""
-  // })
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  })
 
-  // const onChangeEmail = (val) => {
-  //   setUser({ ...user, email: val });
-  // }
+  const onChangeForm = (e) => {
+    const { name, value } = e.target;
+    setUser((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
 
-  // const onChangePassword = (val) => {
-  //   setUser({ ...user, password: val });
-  // }
-
-  // const sendUser = (e) => {
-  //   e.preventDefault()
-  //   if(user.email !== "" && user.password.length >= 6){
-  //     console.log("hello")
-  //   }else{
-  //     console.log("111111111")
-  //   }
-  // }
+  const sendUser = (e) => {
+    e.preventDefault()
+    if(user.email !== "" && user.password.length >= 6){
+      alert("Muvaffaqiyatli yakunlandi.")
+    }else{
+      alert("Tekshirib, qaytadan urinib ko'ring.")
+    }
+  }
 
   return (
     <div className='change-user'>
       <h3>Change User</h3>
-      <form className="avideo-form">
+      <form className="avideo-form" onSubmit={(e) => sendUser(e)}>
           <label htmlFor="aemail">Enter Ypur Email</label>
-          <input type="email" placeholder='exam@gmail.com' />
+          <input type="email" placeholder='exam@gmail.com' name='email' value={user.email} onChange={onChangeForm}/>
           <label htmlFor="apassword">Enter Your Password</label>
-          <input type="password" placeholder='********'/>
+          <input type="password" placeholder='********' name='password' value={user.password} onChange={onChangeForm}/>
           <div className="admin-button d-flex">
           <button className="admin-btn" type="submit">
             Yuborish

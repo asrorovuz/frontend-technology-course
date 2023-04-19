@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { CustomLink } from "./CustomLink";
-import { ReactComponent as YouTube } from "../images/youtube.svg";
-import { ReactComponent as GitHub } from "../images/github.svg";
-import { ReactComponent as Telegram } from "../images/telegram.svg";
+import { ReactComponent as YouTube } from "../assistant/youtube.svg";
+import { ReactComponent as GitHub } from "../assistant/github.svg";
+import { ReactComponent as Telegram } from "../assistant/telegram.svg";
 import "../styles/Layout.css";
 import classNames from "classnames";
-import { ReactComponent as Toggle } from "../images/align-justify.svg";
+import { ReactComponent as Toggle } from "../assistant/align-justify.svg";
 
 export const Layout = ({ navbar, showNavbar }) => {
   return (

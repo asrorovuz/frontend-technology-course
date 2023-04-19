@@ -11,6 +11,7 @@ import { AdminPage } from "../pages/AdminPage"
 import { Routes, Route } from "react-router-dom";
 import { CourseItemsPage } from "../pages/CourseItemsPage";
 import { useState, useEffect } from "react";
+import LoadingComponent from "./LoadingComponent";
 
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
 }
 
 // data
-  const getData = () => {
-    fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
+  const getData = async() => {
+    await fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
       .then((res) => res.json())
       .then(json => setData(json))
       .catch(err => console.log(err))
@@ -38,13 +39,13 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [data]);
 
   return (
     <div className="d-flex App" onClick={(e) => hideNavbar(e)}>
       {data ? <Routes>
           <Route path='/' element={<Layout showNavbar={showNavbar} hideNavbar={hideNavbar} navbar={navbar}/>}>
-            <Route path='/' element={<HomePage />}/>
+            <Route path='/' element={<HomePage data={data}/>}/>
             <Route path='/doc' element={<DocPage />}/>
             <Route path='/course' element={<CoursePage data={data}/>} />
             <Route path='/course/:type' element={<CourseItemsPage data={data}/>}/>
@@ -54,7 +55,7 @@ function App() {
           <Route path='/login' element={<LoginPage />}/>
           <Route path='/admin' element={<AdminPage />} />
           <Route path='*' element={<NotFoundPage />} />
-      </Routes> : <NotFoundPage />}
+      </Routes> : <LoadingComponent />}
     </div>
   );
 }
