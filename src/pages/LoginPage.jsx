@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { ReactComponent as LeftLine } from "../assistant/arrow-left.svg"
 import "../styles/LoginPage.css";
 
 export const LoginPage = () => {
@@ -36,7 +37,7 @@ export const LoginPage = () => {
       <div className="form-block d-flex">
         <div className="form d-flex">
           <Link className="navigate-home" to={"/"}>
-            Bosh sahifaga qaytish
+            <LeftLine/> Bosh sahifaga qaytish
           </Link>
           <form className="d-flex" onSubmit={(e) => sendUser(e)}>
             <h2>Admin panel</h2>

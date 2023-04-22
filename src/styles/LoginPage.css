@@ -21,15 +21,22 @@
 }
 
 .form a{
-  box-shadow: 0px 0px 7px 2px var(--linkColor);
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  box-shadow: 0px 0px 4px 0px var(--linkColor);
   font-weight: 600;
+}
+
+.form a svg{
+  fill: var(--darkColor);
 }
 
 .form-block .form form {
   width: max-content;
   padding: 30px 40px 30px;
   background-color: var(--linkColor);
-  box-shadow: 0px 0px 7px 2px var(--linkColor);
+  box-shadow: 0px 0px 4px 0px var(--linkColor);
   flex-direction: column;
   align-items: flex-start;
   row-gap: 10px;
@@ -77,3 +84,4 @@ label {
   background-color: var(--linkColor);
   color: var(--darkColor);
 }
+

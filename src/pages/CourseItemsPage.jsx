@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ReactComponent as Movie } from "../assistant/film.svg";
+import { ReactComponent as LeftLine } from "../assistant/arrow-left.svg";
+import LoadingComponent from "../components/LoadingComponent";
 import "../styles/CourseItem.css";
 
 export const CourseItemsPage = ({ data }) => {
   let { type } = useParams();
+  const navigation = useNavigate()
 
   const [mainData, setMainData] = useState(null);
 
@@ -14,6 +17,10 @@ export const CourseItemsPage = ({ data }) => {
   const filterMainData = (element) => {
     setMainData(element);
   };
+
+  const backPage = () => {
+    navigation(-1)
+  }
 
   let arr = filterData?.map((elem) => {
     let { title, videos } = elem;
@@ -52,31 +59,35 @@ export const CourseItemsPage = ({ data }) => {
     );
   });
 
-  return (
-    <div className="container d-flex course-item">
-      <div className="main-video d-flex">
-        <div className="video-play">
-          {console.log(
-            mainData ? mainData?.url : filterData[0]?.videos[0]?.url
-          )}
-          <video
-            width="100%"
-            height="100%"
-            controls
-            muted
-            autoPlay={"autoplay"}
-            preLoad="auto"
-            loop
-            src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url}
-            type="video/mp4"
-          ></video>
-        </div>
-        <div className="main-video-content">
-          <h3>HTML</h3>
-          <p>{mainData ? mainData?.name : filterData[0]?.videos[0]?.name}</p>
-        </div>
-      </div>
-      <div className="video-list d-flex">{arr}</div>
+  return data ? (
+    <>
+    <div className="container back-btn">
+      <div className="btn-container" onClick={backPage}><LeftLine/> Orqaga</div>
     </div>
+      <div className="container d-flex course-item">
+        <div className="main-video d-flex">
+          <div className="video-play">
+            <video
+              width="100%"
+              height="100%"
+              controls
+              muted
+              autoPlay={"autoplay"}
+              preLoad="auto"
+              loop
+              src={mainData ? mainData?.url : filterData[0]?.videos[0]?.url}
+              type="video/mp4"
+            ></video>
+          </div>
+          <div className="main-video-content">
+            <h3>HTML</h3>
+            <p>{mainData ? mainData?.name : filterData[0]?.videos[0]?.name}</p>
+          </div>
+        </div>
+        <div className="video-list d-flex">{arr}</div>
+      </div>
+    </>
+  ) : (
+    <LoadingComponent />
   );
 };

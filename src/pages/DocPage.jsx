@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingComponent from "../components/LoadingComponent";
 import "../styles/Doc.css";
 
 export const DocPage = () => {
@@ -35,5 +36,5 @@ export const DocPage = () => {
     );
   });
 
-  return <div className="container d-flex doc">{arr}</div>;
+  return data ? <div className="container d-flex doc">{arr}</div> : <LoadingComponent/>;
 };
