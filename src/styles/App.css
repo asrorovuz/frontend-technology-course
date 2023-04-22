@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: monospace;
   color: var(--darkColor);
+  user-select: none;
 }
 
 :root {

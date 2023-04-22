@@ -57,20 +57,24 @@ footer {
   width: 100%;
   background: var(--darkColor);
   justify-content: center;
-  height: 80px;
+  min-height: 80px;
   line-height: 80px;
   margin-top: 60px;
 }
 
 footer .footer {
   justify-content: center;
-  height: 80px;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  min-height: 80px;
+  padding: 30px 50px;
   line-height: 80px;
   column-gap: 100px;
 }
 
 .footer .footer-content {
   column-gap: 20px;
+  flex-wrap: wrap;
   text-align: center;
 }
 
@@ -90,6 +94,8 @@ footer .footer {
 
 .footer .social-media {
   column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 16px;
 }
 
 .footer .youtube,
@@ -178,5 +184,17 @@ footer .footer {
   }
   .d-block {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .header{
+    column-gap: 40px;
+  }
+  .footer-content{
+    justify-content: center;
+  }
+  .footer-content p{
+    border-right: 0;
   }
 }
