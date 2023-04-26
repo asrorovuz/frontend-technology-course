@@ -18,7 +18,6 @@ export const DocPage = () => {
   };
 
   const onChangeActive = (id) => {
-    // setChangeIcon(!changeIcon);
     setAccardion(id);
   };
 
