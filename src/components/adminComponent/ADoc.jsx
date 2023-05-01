@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 
 export const ADoc = () => {
   const [doc, setDoc] = useState({
     title: "",
-    content: "",
+    text: "",
     url: "",
   });
   const [type, setType] = useState(null);
-  const [data, setData] = useState(null);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -20,10 +18,10 @@ export const ADoc = () => {
 
   const sendDocForm = async (e) => {
     e.preventDefault();
-    if (doc.title !== 0 && doc.url !== 0 && doc.content !== 0) {
+    if (doc.title !== 0 && doc.url !== 0 && doc.text !== 0) {
       try {
         const response = await fetch(
-          "https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/document",
+          "https://front-teach-backend.vercel.app/documention/post_documentation",
           {
             method: "POST", // or 'PUT'
             headers: {
@@ -34,7 +32,7 @@ export const ADoc = () => {
         );
 
         const result = await response.json();
-        alert("Ma'lumotlar muvaffaqiyatli yuborildi.", result);
+        alert("Success", result);
       } catch (error) {
         alert("Ma'lumotlar yuborilmadi: " + error);
       }
@@ -43,31 +41,17 @@ export const ADoc = () => {
     }
 
     setDoc({
-      content: "",
       title: "",
+      text: "",
       url: "",
     });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    fetch(
-      `https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/document/?type=${type}`
-    )
-      .then((res) => res.json())
-      .then((json) => setData(json));
   };
 
   const deleteForm = (e) => {
     e.preventDefault();
 
-    let id = data?.filter((item) => item.type === type)[0]?.id;
-
     fetch(
-      `https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/document/${id}`,
+      `https://front-teach-backend.vercel.app/documention/delete_documentation${type}`,
       {
         method: "DELETE",
       }
@@ -107,12 +91,12 @@ export const ADoc = () => {
         />
         <label htmlFor="doc_content">Content</label>
         <textarea
-          name="content"
+          name="text"
           id="doc_conten"
           placeholder="Enter your content"
           cols="30"
           rows="10"
-          value={doc["content"]}
+          value={doc["text"]}
           onChange={handleInput}
         ></textarea>
         <div className="admin-button d-flex">

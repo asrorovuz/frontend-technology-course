@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoadingComponent from "../components/LoadingComponent";
 import "../styles/Course.css";
 
-export const CoursePage = ({ data }) => {
+export const CoursePage = () => {
+
+  const [data, setData] = useState(null)
+
+  const getData = async() => {
+    await fetch("https://front-teach-backend.vercel.app/course/get_course")
+      .then((res) => res.json())
+      .then(json => setData(json.msg))
+      .catch(err => console.log(err))
+  };
+
+  useEffect(() => {
+    getData();
+  }, [data]);
 
   return (
     data ? <div className="container d-flex course">
     <h2>Kurslar</h2>
     <div className="cards d-flex">
       {data?.map((elem) => {
-        let { title, type, img, videos, id } = elem;
+        let { title, type, image, videos, _id } = elem;
 
         return (
           <div className="card">
             <div className="card-img">
-              <img src={img} alt="course img" />
+              <img src={image} alt="course img" />
             </div>
             <div className="card-content">
               <div className="card-title">
@@ -30,7 +43,7 @@ export const CoursePage = ({ data }) => {
                 </p>
               </div>
             </div>
-            <Link key={id} to={`/course/${type}`} className="card-btn d-flex">
+            <Link key={_id} to={`/course/${type}`} className="card-btn d-flex">
               <span>show</span>
               <div className="card-icon d-flex">
                 <svg

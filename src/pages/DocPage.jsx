@@ -12,7 +12,7 @@ export const DocPage = () => {
   const [accardion, setAccardion] = useState(null);
 
   const getDoc = () => {
-    fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/document")
+    fetch("https://front-teach-backend.vercel.app/documention/get_documentation")
       .then((res) => res.json())
       .then(setData);
   };
@@ -25,8 +25,8 @@ export const DocPage = () => {
     getDoc();
   }, [data]);
 
-  let arr = data?.map((item, index) => {
-    let { title, content, url } = item;
+  let arr = data?.documents?.map((item, index) => {
+    let { title, text, url } = item;
 
     let id = index + 1
     return (
@@ -38,7 +38,7 @@ export const DocPage = () => {
           </div>
         </div>
         <div className={id ===  accardion ? "doc-main show" : "doc-main"}>
-          <div className="card-content">{content}</div>
+          <div className="card-content">{text}</div>
           <div className="doc-link">
             <Link to={url}>
               show more

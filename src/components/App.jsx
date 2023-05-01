@@ -30,16 +30,16 @@ function App() {
 }
 
 // data
-  const getData = async() => {
-    await fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
-      .then((res) => res.json())
-      .then(json => setData(json))
-      .catch(err => console.log(err))
-  };
+  // const getData = async() => {
+  //   await fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
+  //     .then((res) => res.json())
+  //     .then(json => setData(json))
+  //     .catch(err => console.log(err))
+  // };
 
-  useEffect(() => {
-    getData();
-  }, [data]);
+  // useEffect(() => {
+  //   getData();
+  // }, [data]);
 
   return (
     <div className="d-flex App" onClick={(e) => hideNavbar(e)}>
@@ -47,7 +47,7 @@ function App() {
           <Route path='/' element={<Layout showNavbar={showNavbar} hideNavbar={hideNavbar} navbar={navbar}/>}>
             <Route path='/' element={<HomePage data={data}/>}/>
             <Route path='/doc' element={<DocPage />}/>
-            <Route path='/course' element={<CoursePage data={data}/>} />
+            <Route path='/course' element={<CoursePage/>} />
             <Route path='/course/:type' element={<CourseItemsPage data={data}/>}/>
             <Route path='/about' element={<AboutPage />}/>
             <Route path='/contact' element={<ContactPage />}/>
