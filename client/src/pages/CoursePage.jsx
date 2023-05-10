@@ -8,22 +8,22 @@ export const CoursePage = () => {
   const [data, setData] = useState(null)
 
   const getData = async() => {
-    await fetch("https://front-teach-backend.vercel.app/course/get_course")
+    await fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
       .then((res) => res.json())
-      .then(json => setData(json.msg))
+      .then(setData)
       .catch(err => console.log(err))
   };
 
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
 
   return (
     data ? <div className="container d-flex course">
     <h2>Kurslar</h2>
     <div className="cards d-flex">
       {data?.map((elem) => {
-        let { title, type, image, videos, _id } = elem;
+        let { title, type, image, id } = elem;
 
         return (
           <div className="card">
@@ -36,14 +36,14 @@ export const CoursePage = () => {
               </div>
               <div className="card-info">
                 <p>
-                  Soni: <span>{videos.length} ta</span>
+                  Soni: <span>{} ta</span>
                 </p>
                 <p>
                   Narxi: <span>Bepul</span>
                 </p>
               </div>
             </div>
-            <Link key={_id} to={`/course/${type}`} className="card-btn d-flex">
+            <Link key={id} to={`/course/${type}`} className="card-btn d-flex">
               <span>show</span>
               <div className="card-icon d-flex">
                 <svg

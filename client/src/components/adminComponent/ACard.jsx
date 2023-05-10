@@ -21,29 +21,29 @@ export const ACard = () => {
   const sendCardForm = async (e) => {
     e.preventDefault();
     console.log(card)
-    // if (card.title !== 0 && card.avatar !== 0 && card.type !== 0) {
-    //   try {
-    //     const response = await fetch(
-    //       "https://front-teach-backend.vercel.app/course/post_course",
-    //       {
-    //         method: "POST", // or 'PUT'
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(card),
-    //       }
-    //     )
-    //       .then((response) => response.json())
-    //       .then((result) => console.log(result));
+    if (card.title !== 0 && card.avatar !== 0 && card.type !== 0) {
+      try {
+        const response = await fetch(
+          "https://front-teach-backend.vercel.app/course/post_course",
+          {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(card),
+          }
+        )
+          .then((response) => response.json())
+          .then((result) => console.log(result));
 
-    //     const result = await response.json();
-    //     alert("Success", result);
-    //   } catch (error) {
-    //     alert("Ma'lumotlar yuborilmadi: " + error);
-    //   }
-    // } else {
-    //   alert("Form noto'g'ri to'dirilgan.");
-    // }
+        const result = await response.json();
+        alert("Success", result);
+      } catch (error) {
+        alert("Ma'lumotlar yuborilmadi: " + error);
+      }
+    } else {
+      alert("Form noto'g'ri to'dirilgan.");
+    }
 
     setCard({
       title: "",

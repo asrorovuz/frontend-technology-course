@@ -29,17 +29,17 @@ function App() {
     }
 }
 
-// data
-  // const getData = async() => {
-  //   await fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
-  //     .then((res) => res.json())
-  //     .then(json => setData(json))
-  //     .catch(err => console.log(err))
-  // };
+// data.
+  const getData = async() => {
+    await fetch("https://643a38e6bd3623f1b9af203f.mockapi.io/frontend-tech/card")
+      .then((res) => res.json())
+      .then(json => setData(json))
+      .catch(err => console.log(err))
+  };
 
-  // useEffect(() => {
-  //   getData();
-  // }, [data]);
+  useEffect(() => {
+    getData();
+  }, [data]);
 
   return (
     <div className="d-flex App" onClick={(e) => hideNavbar(e)}>
